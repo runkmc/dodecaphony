@@ -6,6 +6,10 @@ class Pitch
     self.name = pitch_name    
   end
 
+  def distance_from second_pitch
+    3
+  end
+
   private
 
   attr_writer :name
