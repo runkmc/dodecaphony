@@ -11,10 +11,43 @@ class Pitch
     (pitch_number - second_pitch.pitch_number).abs
   end
 
+  def spell_as_sharp
+    case pitch_number
+    when 0 then "A"
+    when 1 then "A#"
+    when 2 then "B"
+    when 3 then "C"
+    when 4 then "C#"
+    when 5 then "D"
+    when 6 then "D#"
+    when 7 then "E"
+    when 8 then "F"
+    when 9 then "F#"
+    when 10 then "G"
+    when 11 then "G#"
+    end
+  end
+
+  def spell_as_flat
+    case pitch_number
+    when 0 then "A"
+    when 1 then "Bb"
+    when 2 then "B"
+    when 3 then "C"
+    when 4 then "Db"
+    when 5 then "D"
+    when 6 then "Eb"
+    when 7 then "E"
+    when 8 then "F"
+    when 9 then "Gb"
+    when 10 then "G"
+    when 11 then "Ab"
+    end
+  end
+
   protected
 
   attr_reader :pitch_number
-
 
   private
 

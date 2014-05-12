@@ -35,4 +35,10 @@ describe Pitch do
 
     expect(first_pitch.distance_from second_pitch).to eq 0
   end
+
+  it "can respell pitch as a normalized sharp" do
+    pitch = Pitch.new "G++++++"
+
+    expect(pitch.spell_as_sharp).to eq "C#"
+  end
 end
