@@ -4,9 +4,3 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-Dodecaphony	lib/dodecaphony.rb	/^class Dodecaphony$/;"	c
-Pitch	lib/pitch.rb	/^class Pitch$/;"	c
-distance_from	lib/pitch.rb	/^  def distance_from second_pitch$/;"	f	class:Pitch
-generate_pitch_number	lib/pitch.rb	/^  def generate_pitch_number pitch_string$/;"	f	class:Pitch
-initialize	lib/pitch.rb	/^  def initialize pitch_name$/;"	f	class:Pitch
-letter_name	lib/pitch.rb	/^  def letter_name pitch_string$/;"	f	class:Pitch
