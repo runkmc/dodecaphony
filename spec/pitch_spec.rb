@@ -21,4 +21,11 @@ describe Pitch do
     expect(first_pitch.distance_from second_pitch).to eq 3
   end
 
+  xit "responds with the shortest distance between two pitches" do
+    first_pitch = Pitch.new "f"
+    second_pitch = Pitch.new "c"
+
+    expect(first_pitch.distance_from second_pitch).to eq 5
+  end
+
 end
