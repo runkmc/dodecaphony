@@ -8,18 +8,29 @@ class Pitch
   end
 
   def distance_from second_pitch
-    3
+    (pitch_number - second_pitch.pitch_number).abs
   end
 
-  private
+  protected
 
-  attr_writer :name, :pitch_number
+  attr_reader :pitch_number
 
   def letter_name pitch_string
   end
 
   def generate_pitch_number pitch_string
-    case pitch_string.upcase[1]
+    number = starting_letter_name
+    if accidentals
+      accidentals.each do |a|
+        number += 1 if a == '+' or a == '#'
+        number -= 1 if a == '-' or a == 'b' 
+      end
+    end
+    number
+  end
+
+  def starting_letter_name
+    case name.upcase.split(//)[0]
     when 'A' then 0
     when 'B' then 2
     when 'C' then 3
@@ -29,5 +40,13 @@ class Pitch
     when 'G' then 10
     end
   end
+
+  def accidentals
+    name.downcase.split(//)[1..-1]
+  end
+
+  private
+
+  attr_writer :name, :pitch_number
 
 end
