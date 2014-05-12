@@ -34,4 +34,11 @@ describe Pitch do
 
     expect(first_pitch.distance_from second_pitch).to eq 4
   end
+
+  it "understands edge case pitch names are equal" do
+    first_pitch = Pitch.new "g#####"
+    second_pitch = Pitch.new "C"
+
+    expect(first_pitch.distance_from second_pitch).to eq 0
+  end
 end

@@ -21,10 +21,30 @@ class Pitch
   def generate_pitch_number pitch_string
     number = starting_letter_name
     if accidentals
-      accidentals.each do |a|
-        number += 1 if a == '+' or a == '#'
-        number -= 1 if a == '-' or a == 'b' 
-      end
+      number = adjust_for_accidentals(number)
+    end
+    number
+  end
+
+  def accidentals
+    name.downcase.split(//)[1..-1]
+  end
+
+  private
+
+  def adjust_for_accidentals number
+    accidentals.each do |a|
+      number += 1 if a == '+' or a == '#'
+      number -= 1 if a == '-' or a == 'b' 
+    end
+    ensure_number_scale number
+  end
+
+  def ensure_number_scale number
+    if number < 0
+      number += 12
+    elsif number > 12
+      number -= 12
     end
     number
   end
@@ -40,12 +60,6 @@ class Pitch
     when 'G' then 10
     end
   end
-
-  def accidentals
-    name.downcase.split(//)[1..-1]
-  end
-
-  private
 
   attr_writer :name, :pitch_number
 
