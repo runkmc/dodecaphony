@@ -41,4 +41,10 @@ describe Pitch do
 
     expect(pitch.spell_as_sharp).to eq "C#"
   end
+
+  it "can respell pitch as a normalized flat" do
+    pitch = Pitch.new "c###"
+
+    expect(pitch.spell_as_flat).to eq "Eb"
+  end
 end
