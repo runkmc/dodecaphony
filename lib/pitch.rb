@@ -15,6 +15,9 @@ class Pitch
 
   attr_reader :pitch_number
 
+
+  private
+
   def generate_pitch_number pitch_string
     number = starting_letter_name
     if accidentals
@@ -26,8 +29,6 @@ class Pitch
   def accidentals
     name.downcase.split(//)[1..-1]
   end
-
-  private
 
   def adjust_for_accidentals number
     accidentals.each do |a|
