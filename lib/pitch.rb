@@ -15,9 +15,6 @@ class Pitch
 
   attr_reader :pitch_number
 
-  def letter_name pitch_string
-  end
-
   def generate_pitch_number pitch_string
     number = starting_letter_name
     if accidentals
