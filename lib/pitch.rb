@@ -51,6 +51,8 @@ class Pitch
 
   private
 
+  attr_writer :name, :pitch_number
+
   def generate_pitch_number pitch_string
     number = starting_letter_name
     if accidentals
@@ -91,7 +93,5 @@ class Pitch
     when 'G' then 10
     end
   end
-
-  attr_writer :name, :pitch_number
 
 end
