@@ -72,12 +72,7 @@ class Pitch
   end
 
   def ensure_number_scale number
-    if number < 0
-      number += 12
-    elsif number > 12
-      number -= 12
-    end
-    number
+    number % 12
   end
 
   def starting_letter_name
