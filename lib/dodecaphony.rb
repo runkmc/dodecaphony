@@ -5,31 +5,34 @@ class Dodecaphony
   attr_reader :original_row
 
   def initialize tone_row, spelling=:sharps
-    self.original_row = tone_row
-    self.normalized_row = normalize_row spelling: spelling
+    self.original_row = create_row_with_pitches tone_row
+  end
+
+  def spell_with_sharps
+    normalize_row :spell_as_sharp
   end
 
   def p0
-    normalized_row
+    original_row.each_with_object([]) do |pitch, row|
+      row << pitch.name
+    end
   end
 
   private
 
-  def normalize_row sharps=true
-    row = get_pitches
-    row.each_with_object([]) do |pitch, a|
-      a << (sharps ? pitch.spell_as_sharp : pitch.spell_as_flat)
+  def create_row_with_pitches tone_row
+    tone_row.each_with_object([]) do |pitch, row|
+      row << Pitch.new(pitch)
     end
   end
 
-  def get_pitches
-    original_row.each_with_object([]) do |pitch_name, a|
-      a << Pitch.new(pitch_name)
+  def normalize_row message
+   original_row.each_with_object([]) do |pitch, row|
+     row << pitch.send(message)
     end
   end
 
-  attr_reader :normalized_row
 
-  attr_writer :original_row, :normalized_row
+  attr_writer :original_row
 
 end
