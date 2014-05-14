@@ -11,8 +11,8 @@ class Pitch
     (pitch_number - second_pitch.pitch_number).abs
   end
 
-  def spell_as_sharp
-    case pitch_number
+  def spell_as_sharp num=self.pitch_number
+    case num
     when 0 then "A"
     when 1 then "A#"
     when 2 then "B"
@@ -28,8 +28,8 @@ class Pitch
     end
   end
 
-  def spell_as_flat
-    case pitch_number
+  def spell_as_flat num=self.pitch_number
+    case num
     when 0 then "A"
     when 1 then "Bb"
     when 2 then "B"
@@ -50,6 +50,8 @@ class Pitch
   attr_reader :pitch_number
 
   private
+
+  attr_writer :name, :pitch_number
 
   def generate_pitch_number pitch_string
     number = starting_letter_name
@@ -86,7 +88,5 @@ class Pitch
     when 'G' then 10
     end
   end
-
-  attr_writer :name, :pitch_number
 
 end
