@@ -24,6 +24,8 @@ class Dodecaphony
 
   private
 
+  attr_writer :original_row
+
   def create_row_with_pitches tone_row
     tone_row.each_with_object([]) do |pitch, row|
       row << Pitch.new(pitch)
@@ -36,6 +38,5 @@ class Dodecaphony
     end
   end
 
-  attr_writer :original_row
 
 end

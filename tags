@@ -4,3 +4,20 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+Dodecaphony	lib/dodecaphony.rb	/^class Dodecaphony$/;"	c
+Pitch	lib/pitch.rb	/^class Pitch$/;"	c
+accidentals	lib/pitch.rb	/^  def accidentals$/;"	f	class:Pitch
+adjust_for_accidentals	lib/pitch.rb	/^  def adjust_for_accidentals number$/;"	f	class:Pitch
+create_row_with_pitches	lib/dodecaphony.rb	/^  def create_row_with_pitches tone_row$/;"	f	class:Dodecaphony
+distance_from	lib/pitch.rb	/^  def distance_from second_pitch$/;"	f	class:Pitch
+ensure_number_scale	lib/pitch.rb	/^  def ensure_number_scale number$/;"	f	class:Pitch
+generate_pitch_number	lib/pitch.rb	/^  def generate_pitch_number pitch_string$/;"	f	class:Pitch
+initialize	lib/dodecaphony.rb	/^  def initialize tone_row$/;"	f	class:Dodecaphony
+initialize	lib/pitch.rb	/^  def initialize pitch_name$/;"	f	class:Pitch
+normalize_row	lib/dodecaphony.rb	/^  def normalize_row message$/;"	f	class:Dodecaphony
+p0	lib/dodecaphony.rb	/^  def p0$/;"	f	class:Dodecaphony
+spell_as_flat	lib/pitch.rb	/^  def spell_as_flat$/;"	f	class:Pitch
+spell_as_sharp	lib/pitch.rb	/^  def spell_as_sharp$/;"	f	class:Pitch
+spell_with_flats	lib/dodecaphony.rb	/^  def spell_with_flats$/;"	f	class:Dodecaphony
+spell_with_sharps	lib/dodecaphony.rb	/^  def spell_with_sharps$/;"	f	class:Dodecaphony
+starting_letter_name	lib/pitch.rb	/^  def starting_letter_name$/;"	f	class:Pitch
