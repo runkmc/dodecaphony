@@ -15,18 +15,18 @@ describe Pitch do
     expect(first_pitch.distance_from second_pitch).to eq 3
   end
 
-  it "responds with the shortest distance between two pitches" do
+  it "responds with the ascending distance, not an inversion for length" do
     first_pitch = Pitch.new "f"
-    second_pitch = Pitch.new "c"
+    second_pitch = Pitch.new "e"
 
-    expect(first_pitch.distance_from second_pitch).to eq 5
+    expect(first_pitch.distance_from second_pitch).to eq 11
   end
 
   it "understands unusual pitch names" do
     first_pitch = Pitch.new "fb"
     second_pitch = Pitch.new "A+++"
 
-    expect(first_pitch.distance_from second_pitch).to eq 4
+    expect(first_pitch.distance_from second_pitch).to eq 8
   end
 
   it "understands more unusual pitch names" do

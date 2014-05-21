@@ -8,7 +8,7 @@ class Pitch
   end
 
   def distance_from second_pitch
-    (pitch_number - second_pitch.pitch_number).abs
+    ensure_number_scale(second_pitch.pitch_number - pitch_number)
   end
 
   def spell_as_sharp num=self.pitch_number
