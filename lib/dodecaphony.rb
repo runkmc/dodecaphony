@@ -27,9 +27,14 @@ class Dodecaphony
 
   def p1
     original_row.each_with_object([]) do |pitch, row|
-      row << row_with_intervals[(((starting_pitch.distance_from pitch) + 1) % 12)].name
+      row << row_with_intervals[(transpose 1, pitch)].name
     end
+  end
 
+  def p7
+    original_row.each_with_object([]) do |pitch, row|
+      row << row_with_intervals[(transpose 7, pitch)].name
+    end
   end
   
   private
@@ -41,6 +46,7 @@ class Dodecaphony
   def starting_pitch
     original_row[0]
   end
+
   def create_row_with_pitches tone_row
     tone_row.each_with_object([]) do |pitch, row|
       row << Pitch.new(pitch)
@@ -53,5 +59,8 @@ class Dodecaphony
     end
   end
 
+  def transpose interval, pitch
+    (starting_pitch.distance_from(pitch) + interval) % 12
+  end
 
 end

@@ -2,6 +2,8 @@ require 'dodecaphony'
 
 describe Dodecaphony do
 
+  let(:testing_row) { Dodecaphony.new %w[ d c# a b- f eb e c ab g f# b ] }
+  
   it "initializes with an array of strings and returns the original row" do
     tone_row = %w[ a a# b c db d eb e f f# g g# ]
     new_dod = Dodecaphony.new tone_row
@@ -23,12 +25,14 @@ describe Dodecaphony do
     expect(new_dod.spell_with_flats).to eq %w[ C Db D Eb E F Gb G Ab A Bb B ]
   end
 
-  it "can give other prime rows" do
+  it "can give p1" do
     tone_row = %w[ bb b c c# d f e eb g gb a ab ]
-                   
     new_dod = Dodecaphony.new tone_row
 
     expect(new_dod.p1).to eq %w[ b c c# d eb gb f e ab g bb a ]
   end
 
+  it "can give p7" do
+    expect(testing_row.p7).to eq %w[ a ab e f c b- b g eb d c# f# ]
+  end
 end
