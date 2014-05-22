@@ -2,8 +2,6 @@ require 'dodecaphony'
 
 describe Dodecaphony do
 
-  let(:testing_row) { Dodecaphony.new %w[ d c# a b- f eb e c ab g f# b ] }
-  
   it "initializes with an array of strings and returns the original row" do
     tone_row = %w[ a a# b c db d eb e f f# g g# ]
     new_dod = Dodecaphony.new tone_row
@@ -33,6 +31,8 @@ describe Dodecaphony do
   end
 
   it "can give p7" do
-    expect(testing_row.p7).to eq %w[ a ab e f c b- b g eb d c# f# ]
+    tone_row = Dodecaphony.new %w[ d c# a b- f eb e c ab g f# b ]
+      
+    expect(tone_row.p7).to eq %w[ a ab e f c b- b g eb d c# f# ]
   end
 end
