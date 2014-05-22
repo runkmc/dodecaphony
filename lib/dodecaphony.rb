@@ -9,6 +9,7 @@ class Dodecaphony
     self.row_with_intervals = original_row.each_with_object({}) do |pitch, hash|
       hash[(starting_pitch.distance_from pitch)] = pitch
     end
+    row_with_intervals[12] = starting_pitch
   end
 
   def spell_with_sharps
@@ -17,6 +18,12 @@ class Dodecaphony
 
   def spell_with_flats
     normalize_row :spell_as_flat
+  end
+
+  def i0
+    original_row.each_with_object([]) do |pitch, row|
+      row << row_with_intervals[((row_with_intervals.key(pitch) - 12).abs)].name
+    end
   end
 
   (0..11).each do |i|
