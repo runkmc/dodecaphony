@@ -26,16 +26,19 @@ class Dodecaphony
     end
   end
 
-  def i8
-    new_row = Dodecaphony.new self.send(:p8)
-    new_row.i0
-  end
-
   (0..11).each do |i|
     define_method "p#{i}".to_sym do
       original_row.each_with_object([]) do |pitch, row|
         row << row_with_intervals[(transpose i, pitch)].name
       end
+    end
+  end
+
+  (1..11).each do |i|
+    define_method "i#{i}".to_sym do
+      corresponding_p = self.send("p#{i}".to_sym)
+      new_row = Dodecaphony.new corresponding_p
+      new_row.i0
     end
   end
 
