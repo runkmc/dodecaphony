@@ -19,24 +19,14 @@ class Dodecaphony
     normalize_row :spell_as_flat
   end
 
-  def p0
-    original_row.each_with_object([]) do |pitch, row|
-      row << pitch.name
+  (0..11).each do |i|
+    define_method "p#{i}".to_sym do
+      original_row.each_with_object([]) do |pitch, row|
+        row << row_with_intervals[(transpose i, pitch)].name
+      end
     end
   end
 
-  def p1
-    original_row.each_with_object([]) do |pitch, row|
-      row << row_with_intervals[(transpose 1, pitch)].name
-    end
-  end
-
-  def p7
-    original_row.each_with_object([]) do |pitch, row|
-      row << row_with_intervals[(transpose 7, pitch)].name
-    end
-  end
-  
   private
 
   attr_writer :original_row
