@@ -41,4 +41,10 @@ describe Dodecaphony do
 
     expect(tone_row.i0).to eq %w[ A a# ab g gb f e eb d c# c b ]
   end
+
+  it "can give i8" do
+    tone_row = Dodecaphony.new %w[ A ab a# b c c# d eb e f gb g ]
+
+    expect(tone_row.i8).to eq %w[ f gb e eb d c# c b a# A ab g ]
+  end
 end
