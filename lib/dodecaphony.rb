@@ -50,8 +50,12 @@ class Dodecaphony
     end
   end
 
-  def ri0
-    self.i0.reverse
+  (0..11).each do |i|
+    define_method "ri#{i}".to_sym do
+      self.send("i#{i}".to_sym).reverse.each_with_object([]) do |pitch, row|
+        row << pitch
+      end
+    end
   end
 
   private
