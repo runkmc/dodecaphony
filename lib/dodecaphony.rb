@@ -20,12 +20,6 @@ class Dodecaphony
     normalize_row :spell_as_flat
   end
 
-  def i0
-    original_row.each_with_object([]) do |pitch, row|
-      row << row_with_intervals[((row_with_intervals.key(pitch) - 12).abs)].name
-    end
-  end
-
   (0..11).each do |i|
     define_method "p#{i}".to_sym do
       original_row.each_with_object([]) do |pitch, row|
@@ -39,6 +33,18 @@ class Dodecaphony
       corresponding_p = self.send("p#{i}".to_sym)
       new_row = Dodecaphony.new corresponding_p
       new_row.i0
+    end
+  end
+
+  def i0
+    original_row.each_with_object([]) do |pitch, row|
+      row << row_with_intervals[((row_with_intervals.key(pitch) - 12).abs)].name
+    end
+  end
+
+  def r0
+    original_row.reverse.each_with_object([]) do |pitch, row|
+      row << pitch.name 
     end
   end
 
