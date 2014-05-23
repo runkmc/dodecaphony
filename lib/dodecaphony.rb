@@ -42,9 +42,11 @@ class Dodecaphony
     end
   end
 
-  def r0
-    original_row.reverse.each_with_object([]) do |pitch, row|
-      row << pitch.name 
+  (0..11).each do |i|
+    define_method "r#{i}".to_sym do
+      self.send("p#{i}".to_sym).reverse.each_with_object([]) do |pitch, row|
+        row << pitch
+      end
     end
   end
 
