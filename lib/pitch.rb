@@ -54,11 +54,7 @@ class Pitch
   attr_writer :name, :pitch_number
 
   def generate_pitch_number pitch_string
-    number = starting_letter_name
-    if accidentals
-      number = adjust_for_accidentals(number)
-    end
-    number
+    adjust_for_accidentals(starting_letter_name) if accidentals
   end
 
   def accidentals
