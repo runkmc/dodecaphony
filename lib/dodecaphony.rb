@@ -65,6 +65,10 @@ class Dodecaphony
     row_list = row.each_with_object({}) do |pitch, hash|
       hash[(starting_pitch.distance_from pitch)] = pitch
     end
+    finalize_pitches(row_list)
+  end
+
+  def finalize_pitches(row_list)
     row_list[12] = starting_pitch
     row_list
   end
