@@ -5,16 +5,16 @@ class Dodecaphony
   attr_reader :original_row
 
   def initialize tone_row
-    self.original_row = create_row_with_pitches tone_row
+    self.original_row = create_row_with_pitches(tone_row)
     self.row_with_intervals = create_list_with_intervals(original_row)
   end
 
   def spell_with_sharps
-    normalize_row :spell_as_sharp
+    normalize_row(:spell_as_sharp)
   end
 
   def spell_with_flats
-    normalize_row :spell_as_flat
+    normalize_row(:spell_as_flat)
   end
 
   def i0
