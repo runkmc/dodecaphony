@@ -6,10 +6,7 @@ class Dodecaphony
 
   def initialize tone_row
     self.original_row = create_row_with_pitches tone_row
-    self.row_with_intervals = original_row.each_with_object({}) do |pitch, hash|
-      hash[(starting_pitch.distance_from pitch)] = pitch
-    end
-    row_with_intervals[12] = starting_pitch
+    self.row_with_intervals = create_list_with_intervals(original_row)
   end
 
   def spell_with_sharps
@@ -63,6 +60,14 @@ class Dodecaphony
   attr_writer :original_row
 
   attr_accessor :row_with_intervals
+
+  def create_list_with_intervals(row)
+    row_list = row.each_with_object({}) do |pitch, hash|
+      hash[(starting_pitch.distance_from pitch)] = pitch
+    end
+    row_list[12] = starting_pitch
+    row_list
+  end
 
   def starting_pitch
     original_row[0]
