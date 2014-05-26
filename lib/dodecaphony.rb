@@ -34,7 +34,7 @@ class Dodecaphony
 
   (1..11).each do |i|
     define_method "i#{i}".to_sym do
-      corresponding_p = self.send("p#{i}".to_sym)
+      corresponding_p = self.send("p#{i}")
       new_row = Dodecaphony.new corresponding_p
       new_row.i0
     end
@@ -50,7 +50,7 @@ class Dodecaphony
 
   (0..11).each do |i|
     define_method "ri#{i}".to_sym do
-      self.send("i#{i}".to_sym).reverse.each_with_object([]) do |pitch, row|
+      self.send("i#{i}").reverse.each_with_object([]) do |pitch, row|
         row << pitch
       end
     end
