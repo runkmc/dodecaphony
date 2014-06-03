@@ -15,19 +15,11 @@ class Pitch
   end
 
   def spell_as_sharp num=self.pitch_number
-    if VALID_PITCHES.has_value? num
-      VALID_PITCHES.key(num)
-    else
-      "#{VALID_PITCHES.key(ensure_number_scale(num - 1))}#"
-    end
+    respell :-, "#"
   end
 
-  def spell_as_flat num=self.pitch_number
-    if VALID_PITCHES.has_value? num
-      VALID_PITCHES.key(num)
-    else
-      "#{VALID_PITCHES.key(ensure_number_scale(num + 1))}b"
-    end
+  def spell_as_flat
+    respell :+, "b"
   end
 
   protected
@@ -37,6 +29,15 @@ class Pitch
   private
 
   attr_writer :name, :pitch_number
+
+  def respell method, accidental
+    num = self.pitch_number
+    if VALID_PITCHES.has_value? num
+      VALID_PITCHES.key(num)
+    else
+      VALID_PITCHES.key(ensure_number_scale(num.send(method, 1))) + accidental
+    end
+  end
 
   def generate_pitch_number pitch_string
     adjust_for_accidentals(starting_letter_name) if accidentals
