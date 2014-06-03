@@ -2,6 +2,8 @@ class Pitch
 
   attr_reader :name
 
+  A, B, C, D, E, F, G = 0, 2, 3, 5, 7, 8, 10
+
   def initialize pitch_name
     self.name = pitch_name
     self.pitch_number = generate_pitch_number self.name
@@ -74,15 +76,7 @@ class Pitch
   end
 
   def starting_letter_name
-    case name.upcase.split(//)[0]
-    when 'A' then 0
-    when 'B' then 2
-    when 'C' then 3
-    when 'D' then 5
-    when 'E' then 7
-    when 'F' then 8
-    when 'G' then 10
-    end
+    self.class.const_get(name.upcase.split(//)[0])
   end
 
 end
