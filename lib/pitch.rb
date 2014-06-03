@@ -40,7 +40,7 @@ class Pitch
   end
 
   def generate_pitch_number 
-    adjust_for_accidentals(starting_letter_name) if accidentals
+    adjust_for_accidentals(starting_letter_number) if accidentals
   end
 
   def accidentals
@@ -59,7 +59,7 @@ class Pitch
     number % 12
   end
 
-  def starting_letter_name
+  def starting_letter_number
     VALID_PITCHES[name.upcase.split(//)[0]]
   end
 
