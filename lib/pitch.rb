@@ -18,24 +18,15 @@ class Pitch
     if VALID_PITCHES.has_value? num
       VALID_PITCHES.key(num)
     else
-      "#{VALID_PITCHES.key(num - 1)}#"
+      "#{VALID_PITCHES.key(ensure_number_scale(num - 1))}#"
     end
   end
 
   def spell_as_flat num=self.pitch_number
-    case num
-    when 0 then "A"
-    when 1 then "Bb"
-    when 2 then "B"
-    when 3 then "C"
-    when 4 then "Db"
-    when 5 then "D"
-    when 6 then "Eb"
-    when 7 then "E"
-    when 8 then "F"
-    when 9 then "Gb"
-    when 10 then "G"
-    when 11 then "Ab"
+    if VALID_PITCHES.has_value? num
+      VALID_PITCHES.key(num)
+    else
+      "#{VALID_PITCHES.key(ensure_number_scale(num + 1))}b"
     end
   end
 
