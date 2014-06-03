@@ -5,6 +5,8 @@ class Pitch
   VALID_PITCHES = {'A' => 0, 'B' => 2, 'C' => 3, 'D' => 5,
                    'E' => 7, 'F' => 8, 'G' => 10}
 
+  private_constant :VALID_PITCHES
+
   def initialize pitch_name
     self.name = pitch_name
     self.pitch_number = generate_pitch_number
