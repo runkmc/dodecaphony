@@ -66,7 +66,9 @@ class Dodecaphony
 
   def create_list_with_intervals(row, first_pitch)
     row_list = row.each_with_object({}) do |pitch, hash|
-      hash[(first_pitch.distance_from pitch)] = pitch
+      distance = first_pitch.distance_from pitch
+      validate_uniqueness_of distance, hash
+      hash[distance] = pitch
     end
     finalize_pitches(row_list)
   end
@@ -93,8 +95,10 @@ class Dodecaphony
     end
   end
 
-  def validate_uniqueness_of pitch, hash
-
+  def validate_uniqueness_of distance, hash
+    if hash.has_key? distance
+      raise ArgumentError, "duplicate pitch (#{hash[distance].name})"
+    end
   end
 
   def normalize_row message

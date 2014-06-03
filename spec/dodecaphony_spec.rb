@@ -14,6 +14,16 @@ describe Dodecaphony do
       to raise_error(ArgumentError, 'incorrect number of pitches (13) in row')
   end
 
+  it "raises an error for a row with less than 12 pitches" do
+    expect{ Dodecaphony.new %w[ a a# b eb e f f# g ab a] }.
+      to raise_error(ArgumentError, 'incorrect number of pitches (10) in row')
+  end
+  
+  it "raises an error for duplicate pitches" do
+    expect{ Dodecaphony.new %w[a a# b c c# d eb e f f g ab]}.
+      to raise_error(ArgumentError, 'duplicate pitch (f)')
+  end
+
   it "can respell the row, favoring sharps" do
     tone_row = %w[ c c+ d d# fb f gb g a- b-- bb b ]
     new_dod = Dodecaphony.new tone_row 
