@@ -9,6 +9,11 @@ describe Dodecaphony do
     expect(new_dod.p0).to eq tone_row
   end
 
+  it "raises an error for a row with more than 12 pitches" do
+    expect{ Dodecaphony.new %w[ a a# b c c# d eb e f f# g ab a] }.
+      to raise_error(ArgumentError, 'incorrect number of pitches (13) in row')
+  end
+
   it "can respell the row, favoring sharps" do
     tone_row = %w[ c c+ d d# fb f gb g a- b-- bb b ]
     new_dod = Dodecaphony.new tone_row 
