@@ -7,7 +7,7 @@ class Pitch
 
   def initialize pitch_name
     self.name = pitch_name
-    self.pitch_number = generate_pitch_number self.name
+    self.pitch_number = generate_pitch_number
   end
 
   def distance_from second_pitch
@@ -39,7 +39,7 @@ class Pitch
     end
   end
 
-  def generate_pitch_number pitch_string
+  def generate_pitch_number 
     adjust_for_accidentals(starting_letter_name) if accidentals
   end
 
