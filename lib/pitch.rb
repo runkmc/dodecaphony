@@ -2,7 +2,8 @@ class Pitch
 
   attr_reader :name
 
-  A, B, C, D, E, F, G = 0, 2, 3, 5, 7, 8, 10
+  VALID_PITCHES = {'A' => 0, 'B' => 2, 'C' => 3, 'D' => 5,
+                   'E' => 7, 'F' => 8, 'G' => 10}
 
   def initialize pitch_name
     self.name = pitch_name
@@ -14,19 +15,10 @@ class Pitch
   end
 
   def spell_as_sharp num=self.pitch_number
-    case num
-    when 0 then "A"
-    when 1 then "A#"
-    when 2 then "B"
-    when 3 then "C"
-    when 4 then "C#"
-    when 5 then "D"
-    when 6 then "D#"
-    when 7 then "E"
-    when 8 then "F"
-    when 9 then "F#"
-    when 10 then "G"
-    when 11 then "G#"
+    if VALID_PITCHES.has_value? num
+      VALID_PITCHES.key(num)
+    else
+      "#{VALID_PITCHES.key(num - 1)}#"
     end
   end
 
@@ -76,7 +68,7 @@ class Pitch
   end
 
   def starting_letter_name
-    self.class.const_get(name.upcase.split(//)[0])
+    VALID_PITCHES[name.upcase.split(//)[0]]
   end
 
 end
