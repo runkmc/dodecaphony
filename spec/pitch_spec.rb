@@ -47,4 +47,8 @@ describe Pitch do
 
     expect(pitch.spell_as_flat).to eq "Eb"
   end
+
+  it "raises an error with an invalid pitch name" do
+    expect {Pitch.new "H"}.to raise_error(ArgumentError, 'invalid pitch name')
+  end
 end

@@ -9,6 +9,7 @@ class Pitch
 
   def initialize pitch_name
     self.name = pitch_name
+    validate_name
     self.pitch_number = adjust_for_accidentals(starting_number)
   end
 
@@ -31,6 +32,12 @@ class Pitch
   private
 
   attr_writer :name, :pitch_number
+
+  def validate_name
+    unless VALID_PITCHES.has_key?(starting_letter)
+      raise ArgumentError, 'invalid pitch name'
+    end
+  end
 
   def respell method, accidental
     num = self.pitch_number
