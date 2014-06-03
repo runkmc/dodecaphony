@@ -9,7 +9,7 @@ class Pitch
 
   def initialize pitch_name
     self.name = pitch_name
-    self.pitch_number = generate_pitch_number
+    self.pitch_number = adjust_for_accidentals(starting_number)
   end
 
   def distance_from second_pitch
@@ -41,10 +41,6 @@ class Pitch
     end
   end
 
-  def generate_pitch_number 
-    adjust_for_accidentals(starting_letter_number) if accidentals
-  end
-
   def accidentals
     name.downcase.split(//)[1..-1]
   end
@@ -61,8 +57,12 @@ class Pitch
     number % 12
   end
 
-  def starting_letter_number
-    VALID_PITCHES[name.upcase.split(//)[0]]
+  def starting_number
+    VALID_PITCHES[starting_letter]
+  end
+
+  def starting_letter
+    name.upcase.split(//)[0]
   end
 
 end
