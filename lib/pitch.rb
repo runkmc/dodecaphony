@@ -16,7 +16,7 @@ class Pitch
     ensure_number_scale(second_pitch.pitch_number - pitch_number)
   end
 
-  def spell_as_sharp num=self.pitch_number
+  def spell_as_sharp
     respell :-, "#"
   end
 
