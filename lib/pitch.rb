@@ -41,11 +41,8 @@ class Pitch
 
   def respell method, accidental
     num = self.pitch_number
-    if VALID_PITCHES.has_value? num
-      VALID_PITCHES.key(num)
-    else
+    VALID_PITCHES.key(num) || 
       VALID_PITCHES.key(ensure_number_scale(num.send(method, 1))) + accidental
-    end
   end
 
   def accidentals
