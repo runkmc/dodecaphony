@@ -87,4 +87,10 @@ describe Dodecaphony do
     expect(tone_row.ri10).to eq %w[ c# e eb d f# f b c ab a bb g ]
   end
 
+  it "converts to a reasonable string" do
+    tone_row = Dodecaphony.new %w[ a f# g ab e f b bb d c# c eb ]
+
+    expect(tone_row.to_s).to eq "a f# g ab e f b bb d c# c eb"
+  end
+
 end

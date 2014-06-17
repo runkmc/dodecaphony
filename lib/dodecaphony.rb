@@ -12,6 +12,10 @@ class Dodecaphony
                                                          starting_pitch)
   end
 
+  def to_s
+    p0.join(" ")
+  end
+
   def spell_with_sharps
     normalize_row(:spell_as_sharp)
   end
