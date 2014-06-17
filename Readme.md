@@ -25,16 +25,16 @@ retrograde inversion like so:
 ```ruby
 tone_row = Dodecaphony.new %w[ a f# g ab e f b bb d c# c eb ]
 
-#  "p" followed by 1 through 11 returns the corresponding prime row
+#  "p" followed by 0 through 11 returns the corresponding prime row
 tone_row.p0    # ["a", "f#", "g", "ab", "e", "f", "b", "bb", "d", "c#", "c", "eb"]
 
-#  "r" followed by 1 through 11 returns the corresponding retrograde
+#  "r" followed by 0 through 11 returns the corresponding retrograde
 tone_row.r11   # ["d", "b", "c", "c#", "a", "bb", "e", "eb", "g", "f#", "f", "ab"]
 
-#  "i" followed by 1 through 11 returns the corresponding inversion
+#  "i" followed by 0 through 11 returns the corresponding inversion
 tone_row.i2    # ["b", "d", "c#", "c", "e", "eb", "a", "bb", "f#", "g", "ab", "f"]
 
-# "ri" followed by 1 through 11 returns the corresponding retrograde inversion
+# "ri" followed by 0 through 11 returns the corresponding retrograde inversion
 tone_row.ri6   # ["a", "c", "b", "bb", "d", "c#", "g", "ab", "e", "f", "f#", "eb"]
 ```
 
