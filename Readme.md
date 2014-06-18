@@ -12,7 +12,7 @@ Dodecaphony takes an array of twelve strings, one for each pitch in your
 twelve tone row.
 
 ```ruby
-Dodecaphony.new %w[a a# b c c# d d# e f f# g g#]
+Dodecaphony::Row.new %w[a a# b c c# d d# e f f# g g#]
 ```
 
 Each pitch must begin with a valid letter name (a through g) and can be
@@ -23,7 +23,7 @@ Once you have your row, you can ask it for any prime, inversion, retrograde, or
 retrograde inversion like so:
 
 ```ruby
-tone_row = Dodecaphony.new %w[ a f# g ab e f b bb d c# c eb ]
+tone_row = Dodecaphony::Row.new %w[ a f# g ab e f b bb d c# c eb ]
 
 #  "p" followed by 0 through 11 returns the corresponding prime row
 tone_row.p0    # ["a", "f#", "g", "ab", "e", "f", "b", "bb", "d", "c#", "c", "eb"]
@@ -40,7 +40,7 @@ tone_row.ri6   # ["a", "c", "b", "bb", "d", "c#", "g", "ab", "e", "f", "f#", "eb
 
 You can also ask a row to respell itself, favoring flats or sharps:
 ```ruby
-tone_row = Dodecaphony.new %w[ a f# g ab e f b bb d c# c eb ]
+tone_row = Dodecaphony::Row.new %w[ a f# g ab e f b bb d c# c eb ]
 
 tone_row.spell_with_sharps # ["A", "F#", "G", "G#", "E", "F", "B", "A#", "D", "C#", "C", "D#"]
 
