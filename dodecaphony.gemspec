@@ -1,6 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = "dodecaphony"
   s.version     = "0.1.0"
+  s.platform    = Gem::Platform::RUBY
   s.date        = "2014-06-19"
   s.summary     = "Tone Row Calculator"
   s.description = "A gem for calculating twelve-tone rows"
