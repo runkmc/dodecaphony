@@ -7,6 +7,15 @@ Gem::Specification.new do |s|
   s.authors     = ["Kevin McGladdery"]
   s.email       = ["kevin.mcgladdery@gmail.com"]
   s.homepage    = "http://github.com/runkmc/dodecaphony"
-  s.files       = ["lib/dodecaphony.rb", "lib/pitch.rb"]
   s.license     = "MIT"
+
+  files = []
+  files << 'LICENSE'
+  files << 'Readme.md'
+  files.concat(Dir.glob('lib/**/*.rb'))
+  s.files         = files
+  s.test_files = Dir.glob('spec/*.rb')
+  s.require_paths = ["lib"]
+
+  spec.add_development_dependency "rspec", ">= 3.0.1"
 end
