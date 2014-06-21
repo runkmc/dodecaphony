@@ -1,4 +1,4 @@
-require 'dodecaphony'
+require 'row'
 
 describe Dodecaphony::Row do
 
