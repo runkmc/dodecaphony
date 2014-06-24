@@ -16,6 +16,10 @@ module Dodecaphony
     def to_s
       p0.join(" ")
     end
+    
+    def to_a
+      p0
+    end
 
     def spell_with_sharps
       normalize_row(:spell_as_sharp)

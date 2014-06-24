@@ -87,10 +87,16 @@ describe Dodecaphony::Row do
     expect(tone_row.ri10).to eq %w[ c# e eb d f# f b c ab a bb g ]
   end
 
-  it "converts to a reasonable string" do
+  it "returns a reasonable string" do
     tone_row = Dodecaphony::Row.new %w[ a f# g ab e f b bb d c# c eb ]
 
     expect(tone_row.to_s).to eq "a f# g ab e f b bb d c# c eb"
+  end
+
+  it "returns an array" do
+    tone_row = Dodecaphony::Row.new %w[a f# g ab e f b b- d c# c eb]
+
+    expect(tone_row.to_a).to eq %w[a f# g ab e f b b- d c# c eb]
   end
 
 end
