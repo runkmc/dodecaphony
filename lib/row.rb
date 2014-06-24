@@ -4,21 +4,27 @@ require 'set'
 module Dodecaphony
   class Row
 
-    attr_reader :original_row
+    attr_reader :original_row, :intervals
 
     def initialize tone_row
       self.original_row = create_row_with_pitches(tone_row)
       validate_size_of original_row
-      self.row_with_intervals = create_list_with_intervals(original_row,
+      self.intervals = create_list_with_intervals(original_row,
                                                            starting_pitch)
     end
 
     def to_s
-      p0.join(" ")
+      to_a.join(" ")
     end
     
     def to_a
-      p0
+      pitches.each_with_object([]) do |pitch, row|
+        row << pitch.name
+      end
+    end
+
+    def pitches
+      original_row
     end
 
     def spell_with_sharps
@@ -29,49 +35,47 @@ module Dodecaphony
       normalize_row(:spell_as_flat)
     end
 
-    def i0
-      original_row.each_with_object([]) do |pitch, row|
-        row << row_with_intervals[((row_with_intervals.key(pitch) - 12).abs)].name
-      end
-    end
-
-    (0..11).each do |i|
-      define_method "p#{i}".to_sym do
-        original_row.each_with_object([]) do |pitch, row|
-          row << row_with_intervals[(transpose i, pitch)].name
-        end
-      end
-    end
-
-    (1..11).each do |i|
-      define_method "i#{i}".to_sym do
-        corresponding_p = self.send("p#{i}")
-        new_row = self.class.new corresponding_p
-        new_row.i0
-      end
-    end
-
-    (0..11).each do |i|
-      define_method "r#{i}".to_sym do
-        self.send("p#{i}".to_sym).reverse.each_with_object([]) do |pitch, row|
-          row << pitch
-        end
-      end
-    end
-
-    (0..11).each do |i|
-      define_method "ri#{i}".to_sym do
-        self.send("i#{i}").reverse.each_with_object([]) do |pitch, row|
-          row << pitch
-        end
-      end
-    end
+    # def i0
+    #   original_row.each_with_object([]) do |pitch, row|
+    #     row << intervals[((row_with_intervals.key(pitch) - 12).abs)].name
+    #   end
+    # end
+    #
+    # (0..11).each do |i|
+    #   define_method "p#{i}".to_sym do
+    #     original_row.each_with_object([]) do |pitch, row|
+    #       row << intervals[(transpose i, pitch)].name
+    #     end
+    #   end
+    # end
+    #
+    # (1..11).each do |i|
+    #   define_method "i#{i}".to_sym do
+    #     corresponding_p = self.send("p#{i}")
+    #     new_row = self.class.new corresponding_p
+    #     new_row.i0
+    #   end
+    # end
+    #
+    # (0..11).each do |i|
+    #   define_method "r#{i}".to_sym do
+    #     self.send("p#{i}".to_sym).reverse.each_with_object([]) do |pitch, row|
+    #       row << pitch
+    #     end
+    #   end
+    # end
+    #
+    # (0..11).each do |i|
+    #   define_method "ri#{i}".to_sym do
+    #     self.send("i#{i}").reverse.each_with_object([]) do |pitch, row|
+    #       row << pitch
+    #     end
+    #   end
+    # end
 
     private
 
-    attr_writer :original_row
-
-    attr_accessor :row_with_intervals
+    attr_writer :intervals, :original_row
 
     def create_list_with_intervals(row, first_pitch)
       row_list = row.each_with_object({}) do |pitch, hash|
@@ -114,10 +118,6 @@ module Dodecaphony
       original_row.each_with_object([]) do |pitch, row|
         row << pitch.send(message)
       end
-    end
-
-    def transpose interval, pitch
-      (starting_pitch.distance_from(pitch) + interval) % 12
     end
 
   end

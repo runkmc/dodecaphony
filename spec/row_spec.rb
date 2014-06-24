@@ -6,7 +6,7 @@ describe Dodecaphony::Row do
     tone_row = %w[ a a# b c db d eb e f f# g g# ]
     new_dod = Dodecaphony::Row.new tone_row
 
-    expect(new_dod.p0).to eq tone_row
+    expect(new_dod.to_a).to eq tone_row
   end
 
   it "raises an error for a row with more than 12 pitches" do
@@ -99,4 +99,10 @@ describe Dodecaphony::Row do
     expect(tone_row.to_a).to eq %w[a f# g ab e f b b- d c# c eb]
   end
 
+  it "returns its pitches" do
+    tone_row = Dodecaphony::Row.new %w[a f# g ab e f b b- d c# c eb]
+    first_pitch = Dodecaphony::Pitch.new "a"
+
+    expect(tone_row.pitches.to_a[0].name).to eq first_pitch.name
+  end
 end
