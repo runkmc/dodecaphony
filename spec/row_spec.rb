@@ -112,4 +112,11 @@ describe Dodecaphony::Row do
 
     expect(row1).to eq row2
   end
+
+  it "knows when rows are unequal" do
+    row1 = Dodecaphony::Row.new %w[a f# g ab e f b b- d c# c eb]
+    row2 = Dodecaphony::Row.new %w[a b b- c d- d e- e f g- g a-]
+
+    expect(row1).to_not eq row2
+  end
 end
