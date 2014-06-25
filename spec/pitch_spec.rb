@@ -58,4 +58,11 @@ describe Dodecaphony::Pitch do
 
     expect(p1).to_not eq p2
   end
+
+  it "knows when it is equal to another pitch" do
+    p1 = Dodecaphony::Pitch.new "a"
+    p2 = Dodecaphony::Pitch.new "a"
+
+    expect(p1).to eq p2
+  end
 end
