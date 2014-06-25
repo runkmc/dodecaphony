@@ -6,6 +6,8 @@ module Dodecaphony
 
     attr_reader :original_row, :intervals
 
+    alias_method :pitches, :original_row
+
     def initialize tone_row
       self.original_row = create_row_with_pitches(tone_row)
       validate_size_of original_row
@@ -21,10 +23,6 @@ module Dodecaphony
       pitches.each_with_object([]) do |pitch, row|
         row << pitch.name
       end
-    end
-
-    def pitches
-      original_row
     end
 
     def spell_with_sharps
