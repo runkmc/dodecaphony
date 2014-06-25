@@ -10,7 +10,7 @@ describe Dodecaphony::Calculator do
     expect(calc).to be_kind_of(Dodecaphony::Calculator)
   end
 
-  xit "can provide the original row" do
+  it "can provide the original row" do
     row = Dodecaphony::Row.new %w[a b b- c c# d d# e f gb g g#]
     calc = Dodecaphony::Calculator.new row
 
