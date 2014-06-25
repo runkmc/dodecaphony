@@ -32,7 +32,7 @@ module Dodecaphony
 
     (0..11).each do |i|
       define_method "r#{i}".to_sym do
-        new_row = self.send("p#{i}".to_sym).
+        new_row = self.send("p#{i}").
           to_a.reverse.each_with_object([]) do |pitch, row|
           row << pitch
         end
