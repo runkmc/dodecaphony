@@ -105,4 +105,11 @@ describe Dodecaphony::Row do
 
     expect(tone_row.pitches.to_a[0].name).to eq first_pitch.name
   end
+
+  it "can check for equality with other rows" do
+    row1 = Dodecaphony::Row.new %w[a f# g ab e f b b- d c# c eb]
+    row2 = Dodecaphony::Row.new %w[a f# g ab e f b b- d c# c eb]
+
+    expect(row1).to eq row2
+  end
 end

@@ -33,6 +33,12 @@ module Dodecaphony
       normalize_row(:spell_as_flat)
     end
 
+    def == other
+      (other.pitches).zip(pitches).all? do |pitches|
+        pitches[0] == pitches[1]
+      end
+    end
+
     # def i0
     #   original_row.each_with_object([]) do |pitch, row|
     #     row << intervals[((row_with_intervals.key(pitch) - 12).abs)].name
