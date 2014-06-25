@@ -51,4 +51,11 @@ describe Dodecaphony::Pitch do
   it "raises an error with an invalid pitch name" do
     expect {Dodecaphony::Pitch.new "H"}.to raise_error(ArgumentError, 'invalid pitch name')
   end
+
+  it "knows when it is not equal to another pitch" do
+    p1 = Dodecaphony::Pitch.new "a#"
+    p2 = Dodecaphony::Pitch.new "b-"
+
+    expect(p1).to_not eq p2
+  end
 end

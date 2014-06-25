@@ -26,6 +26,10 @@ module Dodecaphony
       respell :+, "b"
     end
 
+    def == other
+      other.name == self.name
+    end
+
     protected
 
     attr_reader :pitch_number
