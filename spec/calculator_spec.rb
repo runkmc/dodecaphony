@@ -17,7 +17,7 @@ describe Dodecaphony::Calculator do
     expect(calc.p0).to eq row
   end
 
-  xit "can provide p1" do
+  it "can provide p1" do
     row = Dodecaphony::Row.new %w[ bb b c c# d f e eb g gb a ab ]
     p1_row = Dodecaphony::Row.new %w[ b c c# d eb gb f e ab g bb a ]
     calc = Dodecaphony::Calculator.new row
