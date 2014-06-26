@@ -13,15 +13,6 @@ module Dodecaphony
       }.to_a 
     end
 
-    (0..11).each do |i|
-      define_method "p#{i}".to_sym do
-        transposed_row = row.pitches.each_with_object([]) { |pitch, new_row|
-          new_row << row.intervals[(transpose i, pitch)].name
-        }.to_a 
-        Dodecaphony::Row.new transposed_row
-      end
-    end
-
     (1..11).each do |i|
       define_method "i#{i}".to_sym do
         corresponding_p = self.send("p#{i}").to_a
@@ -31,6 +22,13 @@ module Dodecaphony
     end
 
     (0..11).each do |i|
+      define_method "p#{i}".to_sym do
+        transposed_row = row.pitches.each_with_object([]) { |pitch, new_row|
+          new_row << row.intervals[(transpose i, pitch)].name
+        }.to_a 
+        Dodecaphony::Row.new transposed_row
+      end
+
       define_method "r#{i}".to_sym do
         new_row = self.send("p#{i}").
           to_a.reverse.each_with_object([]) do |pitch, row|
@@ -38,9 +36,7 @@ module Dodecaphony
         end
         Dodecaphony::Row.new new_row
       end
-    end
 
-    (0..11).each do |i|
       define_method "ri#{i}".to_sym do
         new_row = self.send("i#{i}").
           to_a.reverse.each_with_object([]) do |pitch, row|
