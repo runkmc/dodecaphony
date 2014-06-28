@@ -27,7 +27,10 @@ module Dodecaphony
     end
 
     def == other
-      other.name == self.name
+      numbers = (distance_from(other) == 0)
+      names = (starting_letter == other.name.upcase.split(//)[0])
+
+      names && numbers
     end
 
     protected

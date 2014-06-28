@@ -65,4 +65,11 @@ describe Dodecaphony::Pitch do
 
     expect(p1).to eq p2
   end
+
+  it "doesn't factor accidental style into equality" do
+    p1 = Dodecaphony::Pitch.new "c#"
+    p2 = Dodecaphony::Pitch.new "c+"
+
+    expect(p1).to eq p2
+  end
 end
