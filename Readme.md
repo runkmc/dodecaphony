@@ -49,14 +49,14 @@ being the initial of the type of row you want, followed by the number of the
 row you want. Observe:
 ```ruby
 #  "p" followed by 0 through 11 returns the corresponding prime row
-tone_row.p0    # ["a", "f#", "g", "ab", "e", "f", "b", "bb", "d", "c#", "c", "eb"]
+calc.p0    # ["a", "f#", "g", "ab", "e", "f", "b", "bb", "d", "c#", "c", "eb"]
 
 #  "r" followed by 0 through 11 returns the corresponding retrograde
-tone_row.r11   # ["d", "b", "c", "c#", "a", "bb", "e", "eb", "g", "f#", "f", "ab"]
+calc.r11   # ["d", "b", "c", "c#", "a", "bb", "e", "eb", "g", "f#", "f", "ab"]
 
 #  "i" followed by 0 through 11 returns the corresponding inversion
-tone_row.i2    # ["b", "d", "c#", "c", "e", "eb", "a", "bb", "f#", "g", "ab", "f"]
+calc.i2    # ["b", "d", "c#", "c", "e", "eb", "a", "bb", "f#", "g", "ab", "f"]
 
 # "ri" followed by 0 through 11 returns the corresponding retrograde inversion
-tone_row.ri6   # ["a", "c", "b", "bb", "d", "c#", "g", "ab", "e", "f", "f#", "eb"]
+calc.ri6   # ["a", "c", "b", "bb", "d", "c#", "g", "ab", "e", "f", "f#", "eb"]
 ```
