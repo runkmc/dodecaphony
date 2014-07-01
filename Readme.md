@@ -43,7 +43,10 @@ object.
 tone_row = Dodecaphony::Row.new %w[ a f# g ab e f b bb d c# c eb ]
 calc = Dodecaphony::Calculator.new tone_row
 ```
-
+The calculator can then return any prime, inversion, retrograde, or retrograde
+inversion. Each of these rows is a method of the calculator object, the names
+being the initial of the type of row you want, followed by the number of the
+row you want. Observe:
 ```ruby
 #  "p" followed by 0 through 11 returns the corresponding prime row
 tone_row.p0    # ["a", "f#", "g", "ab", "e", "f", "b", "bb", "d", "c#", "c", "eb"]
