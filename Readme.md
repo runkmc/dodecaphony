@@ -29,6 +29,14 @@ my_row.to_a    # ['a', 'a#', 'b', 'c', 'c#', 'd', 'd#', 'e', 'f', 'f#', 'g', 'g#
 
 my_row.to_s    # "a a# b c c# d d# e f f# g g#"
 ```
+You can also ask a row to respell itself, favoring flats or sharps:
+```ruby
+tone_row = Dodecaphony::Row.new %w[ a f# g ab e f b bb d c# c eb ]
+
+tone_row.spell_with_sharps # ["A", "F#", "G", "G#", "E", "F", "B", "A#", "D", "C#", "C", "D#"]
+
+tone_row.spell_with_flats # ["A", "Gb", "G", "Ab", "E", "F", "B", "Bb", "D", "Db", "C", "Eb"]
+```
 The `Dodecaphony::Calculator` class initializes with a `Dodecaphony::Row`
 object.
 ```ruby
@@ -48,12 +56,4 @@ tone_row.i2    # ["b", "d", "c#", "c", "e", "eb", "a", "bb", "f#", "g", "ab", "f
 
 # "ri" followed by 0 through 11 returns the corresponding retrograde inversion
 tone_row.ri6   # ["a", "c", "b", "bb", "d", "c#", "g", "ab", "e", "f", "f#", "eb"]
-```
-You can also ask a row to respell itself, favoring flats or sharps:
-```ruby
-tone_row = Dodecaphony::Row.new %w[ a f# g ab e f b bb d c# c eb ]
-
-tone_row.spell_with_sharps # ["A", "F#", "G", "G#", "E", "F", "B", "A#", "D", "C#", "C", "D#"]
-
-tone_row.spell_with_flats # ["A", "Gb", "G", "Ab", "E", "F", "B", "Bb", "D", "Db", "C", "Eb"]
 ```
