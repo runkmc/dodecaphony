@@ -22,6 +22,13 @@ valid accidentals.
 ```ruby
 my_row = Dodecaphony::Row.new %w[a a# b c c# d d# e f f# g g#]
 ```
+A row can be converted to either an array of pitch names, or a string with
+pitch names separated by a space.
+```ruby
+my_row.to_a    # ['a', 'a#', 'b', 'c', 'c#', 'd', 'd#', 'e', 'f', 'f#', 'g', 'g#']
+
+my_row.to_s    # "a a# b c c# d d# e f f# g g#"
+```
 
 ```ruby
 tone_row = Dodecaphony::Row.new %w[ a f# g ab e f b bb d c# c eb ]
