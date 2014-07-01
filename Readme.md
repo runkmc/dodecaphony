@@ -29,9 +29,14 @@ my_row.to_a    # ['a', 'a#', 'b', 'c', 'c#', 'd', 'd#', 'e', 'f', 'f#', 'g', 'g#
 
 my_row.to_s    # "a a# b c c# d d# e f f# g g#"
 ```
-
+The `Dodecaphony::Calculator` class initializes with a `Dodecaphony::Row`
+object.
 ```ruby
 tone_row = Dodecaphony::Row.new %w[ a f# g ab e f b bb d c# c eb ]
+calc = Dodecaphony::Calculator.new tone_row
+```
+
+```ruby
 
 #  "p" followed by 0 through 11 returns the corresponding prime row
 tone_row.p0    # ["a", "f#", "g", "ab", "e", "f", "b", "bb", "d", "c#", "c", "eb"]
