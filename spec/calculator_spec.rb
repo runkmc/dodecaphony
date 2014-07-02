@@ -35,7 +35,7 @@ describe Dodecaphony::Calculator do
   
   it "can give i0" do
     row = Dodecaphony::Row.new %w[ A ab a# b c c# d eb e f gb g ]
-    new_row = Dodecaphony::Row.new %w[ A a# ab g gb f e eb d c# c b ]
+    new_row = %w[ A a# ab g gb f e eb d c# c b ]
     calc = Dodecaphony::Calculator.new row
 
     expect(calc.i0).to eq new_row
@@ -43,7 +43,7 @@ describe Dodecaphony::Calculator do
 
   it "can give i8" do
     row = Dodecaphony::Row.new %w[ A ab a# b c c# d eb e f gb g ]
-    new_row = Dodecaphony::Row.new %w[ f gb e eb d c# c b a# A ab g ]
+    new_row = %w[ f gb e eb d c# c b a# A ab g ]
     calc = Dodecaphony::Calculator.new row
 
     expect(calc.i8).to eq new_row

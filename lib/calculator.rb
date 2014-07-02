@@ -8,9 +8,9 @@ module Dodecaphony
     end
 
     def i0
-      Dodecaphony::Row.new row.each_with_object([]) { |pitch, new_row|
+      row.each_with_object([]) { |pitch, new_row|
         new_row << row.intervals[((row.intervals.key(pitch) - 12).abs)].name
-      }.to_a 
+      }
     end
 
     (1..11).each do |i|
