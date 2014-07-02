@@ -23,10 +23,9 @@ module Dodecaphony
 
     (0..11).each do |i|
       define_method "p#{i}".to_sym do
-        transposed_row = row.pitches.each_with_object([]) { |pitch, new_row|
+        row.pitches.each_with_object([]) { |pitch, new_row|
           new_row << row.intervals[(transpose i, pitch)].name
-        }.to_a 
-        Dodecaphony::Row.new transposed_row
+        }
       end
 
       define_method "r#{i}".to_sym do

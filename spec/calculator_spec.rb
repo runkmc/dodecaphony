@@ -14,20 +14,20 @@ describe Dodecaphony::Calculator do
     row = Dodecaphony::Row.new %w[a b b- c c# d d# e f gb g g#]
     calc = Dodecaphony::Calculator.new row
 
-    expect(calc.p0).to eq row
+    expect(calc.p0).to eq row.to_a
   end
 
   it "can provide p1" do
     row = Dodecaphony::Row.new %w[ bb b c c# d f e eb g gb a ab ]
-    p1_row = Dodecaphony::Row.new %w[ b c c# d eb gb f e ab g bb a ]
+    p1_row = %w[ b c c# d eb gb f e ab g bb a ]
     calc = Dodecaphony::Calculator.new row
 
-    expect(calc.p1).to eq p1_row
+    expect(calc.p1).to eq p1_row.to_a
   end
 
    it "can give p7" do
      row = Dodecaphony::Row.new %w[ d c# a b- f eb e c ab g f# b ]
-     prime7 = Dodecaphony::Row.new %w[ a ab e f c b- b g eb d c# f# ]
+     prime7 = %w[ a ab e f c b- b g eb d c# f# ]
      calc = Dodecaphony::Calculator.new row
        
      expect(calc.p7).to eq prime7
