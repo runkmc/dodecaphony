@@ -67,7 +67,7 @@ describe Dodecaphony::Calculator do
 
   it "can give ri0" do
     row = Dodecaphony::Row.new %w[ a f# g ab e f b bb d c# c eb ]
-    new_row = Dodecaphony::Row.new %w[eb f# f e ab g c# d bb b c a ] 
+    new_row = %w[eb f# f e ab g c# d bb b c a ] 
     calc = Dodecaphony::Calculator.new row
 
     expect(calc.ri0).to eq new_row
@@ -75,7 +75,7 @@ describe Dodecaphony::Calculator do
 
   it "can give ri11" do
     row = Dodecaphony::Row.new %w[ a f# g ab e f b bb d c# c eb ]
-    new_row = Dodecaphony::Row.new %w[ c# e eb d f# f b c ab a bb g ]
+    new_row = %w[ c# e eb d f# f b c ab a bb g ]
     calc = Dodecaphony::Calculator.new row
 
     expect(calc.ri10).to eq new_row
