@@ -51,7 +51,7 @@ describe Dodecaphony::Calculator do
 
   it "can give r0" do
     row = Dodecaphony::Row.new %w[ a f# g ab e f b bb d c# c eb ]
-    new_row = Dodecaphony::Row.new %w[ eb c c# d bb b f e ab g f# a ]
+    new_row = %w[ eb c c# d bb b f e ab g f# a ]
     calc = Dodecaphony::Calculator.new row
 
     expect(calc.r0).to eq new_row
@@ -59,7 +59,7 @@ describe Dodecaphony::Calculator do
 
   it "can give r9" do
     row = Dodecaphony::Row.new %w[ a f# g ab e f b bb d c# c eb ]
-    new_row = Dodecaphony::Row.new %w[ c a bb b g ab d c# f e eb f# ]
+    new_row = %w[ c a bb b g ab d c# f e eb f# ]
     calc = Dodecaphony::Calculator.new row
 
     expect(calc.r9).to eq new_row
