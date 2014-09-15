@@ -2,8 +2,7 @@ Dodecaphony
 -----------
 
 Dodecaphony calculates twelve tone rows for
-you. To learn more about what this means, [read
-this](http://www.tufts.edu/~mdevoto/12TonePrimer.pdf).
+you. To learn more about what this means, read http://www.tufts.edu/~mdevoto/12TonePrimer.pdf
 
 Dodecaphony is a ruby gem. Install with
 ```
